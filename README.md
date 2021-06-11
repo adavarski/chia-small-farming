@@ -98,10 +98,8 @@ sh ./utils/docker-install.sh
 ### Setup chia log level
 chia configure -log-level INFO
 chia stop all && chia start farmer
-```
 
-Start chiamon
-```
+### Start chiamon
 cd ./monitoring/docker-chiamon
 docker-compose up -d
 
