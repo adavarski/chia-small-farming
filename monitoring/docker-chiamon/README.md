@@ -23,7 +23,7 @@ Please set log_level to INFO in your config.yaml
 
 ## chia_exporter
 
-The [chia_exporter](https://github.com/adavarski/chia_exporter) is used to collect
+The [chia_exporter](https://github.com/adavarski/chia-small-farming/tree/main/monitoring/chia_exporter) is used to collect
 metrics from the Chia node [RPC
 API](https://github.com/Chia-Network/chia-blockchain/wiki/RPC-Interfaces).
 
