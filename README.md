@@ -109,7 +109,7 @@ cd ./monitoring/docker-chiamon
 docker-compose up -d
 
 ```
-http://${CHIA_NODE_IP}:3000
+http://${CHIA_NODE_IP}:3000 (user/password: admin/admin)
 
 <img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon.png" width="900">
 
