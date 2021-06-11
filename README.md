@@ -31,6 +31,8 @@ mount SATA SSD/NVMe SSD disks (2 Plotting SSDs: RAID0) for plots temp files -> /
 mount SATA HDD disks for plots (2 x WD Red Pro NAS HDD 16TB : RAID0 for ~ 200-300 k=32 plots) -> /mnt/plots (exmple: 2 HDD ---> /mnt/plots_disk1 & /mnt/plots_disk2)
 
 ### Test disks and R/W performance
+sudo apt install smartmontools pv fio
+
 sudo smartctl -t conveyance /dev/sdc
 sudo smartctl -l selftest /dev/sdc
 sudo smartctl --all /dev/sda
