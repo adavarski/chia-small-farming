@@ -1,0 +1,42 @@
+version: '2'
+services:
+  mtail:
+    build: mtail
+    command:
+      - "-progs"
+      - "/etc/mtail"
+      - "-logs"
+      - "/var/log/chia/debug.log"
+      - "-logtostderr"
+    volumes:
+      - ${HOME}/.chia/mainnet/log/:/var/log/chia/
+    network_mode: host
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    command:
+      - '--path.rootfs=/host'
+    pid: host
+    volumes:
+      - '/:/host:ro,rslave'
+    network_mode: host
+  chia_exporter:
+    build: chia_exporter
+    command:
+      - "-cert"
+      - "/etc/chia.crt"
+      - "-key"
+      - "/etc/chia.key"
+    volumes:
+      - ${HOME}/.chia/mainnet/config/ssl/full_node/private_full_node.crt:/etc/chia.crt
+      - ${HOME}/.chia/mainnet/config/ssl/full_node/private_full_node.key:/etc/chia.key
+    network_mode: host
+  prometheus:
+    build: prometheus
+    volumes:
+      - prom_data:/prometheus
+    network_mode: host
+  grafana:
+    build: grafana
+    network_mode: host
+volumes:
+  prom_data:

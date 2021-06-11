@@ -1,0 +1,19 @@
+[Unit]
+Description=chia start farmer
+Wants=network-online.target
+After=network.target network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=forking
+Restart=always
+RestartSec=1
+User='davar'
+Group='davar'
+
+# venv/bin must be in the PATH b/c the scripts expect to be able to call chia (chia_harvester, etc.) on cli
+ExecStart=/usr/bin/env PATH=/home/davar/CHIA/chia-blockchain/venv/bin:$PATH chia start farmer -r
+ExecStop=/usr/bin/env PATH=/home/davar/CHIA/chia-blockchain/venv/bin:$PATH chia stop all -d
+
+[Install]
+WantedBy=multi-user.target
