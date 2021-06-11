@@ -1,4 +1,4 @@
-## Chia: small home farming 
+## Chia: small home farm
 
 
 - ### Setup/Check Chia environment
