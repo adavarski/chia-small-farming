@@ -106,7 +106,7 @@ docker-compose up -d
 ```
 http://${CHIA_NODE_IP}:3000
 
-<img src="https://github.com/adavarski/chia-small-farming/blob/main/pictures/chiamon.png" width="900">
+<img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon.png" width="900">
 
 Note: `docker volume prune` ('Search Time Histogram')   
 
