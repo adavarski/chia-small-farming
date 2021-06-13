@@ -1,10 +1,10 @@
 ## Chia: small home farm
 
 
-- ### Setup/Check Chia environment (ref: https://github.com/Chia-Network/chia-blockchain/wiki/INSTALL)
+- ### Setup/Check Chia environment 
 
 ```
-### Checkout the source, install and start
+### Checkout the source, install and start (Ref: https://github.com/Chia-Network/chia-blockchain/wiki/INSTALL)
 git clone https://github.com/Chia-Network/chia-blockchain.git -b latest --recurse-submodules
 cd chia-blockchain
 sh install.sh
