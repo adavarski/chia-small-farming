@@ -1,7 +1,7 @@
 ## Chia: small home farm
 
 
-- ### Setup/Check Chia environment
+- ### Setup/Check Chia environment (ref: https://github.com/Chia-Network/chia-blockchain/wiki/INSTALL)
 
 ```
 ### Checkout the source, install and start
