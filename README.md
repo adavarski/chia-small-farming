@@ -115,12 +115,9 @@ docker-chiamon_grafana_1         /run.sh                          Up
 docker-chiamon_mtail_1           /usr/bin/mtail -progs /etc ...   Up           
 docker-chiamon_node_exporter_1   /bin/node_exporter --path. ...   Up           
 docker-chiamon_prometheus_1      /bin/prometheus --config.f ...   Up           
-
-
 ```
 http://${CHIA_NODE_IP}:3000 (user/password: admin/admin)
 
 <img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon.png" width="900">
 
-Note: `docker volume prune` (clean)   
 
