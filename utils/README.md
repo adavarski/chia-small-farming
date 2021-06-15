@@ -9,7 +9,7 @@ cd chia-blockchain
 
 . ./activate
 chia stop -d all
-tar -cvf /home/davar/CHIA/backup/chia-backup."$(date '+%Y-%m-%d').1.1.4.tar"  /home/davar/.chia
+tar -cvf /home/davar/CHIA/backup/chia-backup."$(date '+%Y-%m-%d').1.1.6.tar"  /home/davar/.chia
 
 deactivate
 git fetch
@@ -27,7 +27,7 @@ sh install.sh
 
 . ./activate
 
-chia version (can be 1.1.5 for example)
+chia version (can be 1.1.7 for example)
 chia init
 chia start farmer
 
