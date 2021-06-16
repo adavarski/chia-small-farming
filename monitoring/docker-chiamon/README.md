@@ -70,8 +70,7 @@ data directories; consult each project's documentation for details.
   docs](https://github.com/prometheus/node_exporter#docker). If you do run it in
   Docker, you'll need to bind-mount in any other volumes you want to monitor
   (add them to the `volumes` list in `docker-compose.yml`, e.g. `-
-  '/scratch:/scratch'`). See [issue #3](https://github.com/retzkek/chiamon/issues/3).
-
+  '/scratch:/scratch'`). 
 * On **Mac** you'll need to run node_exporter natively, not under Docker: `brew
   install node_exporter`.
 
