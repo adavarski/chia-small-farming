@@ -2,7 +2,7 @@
 
 Example using [mtail](https://github.com/google/mtail) to collect metrics from
 [Chia](https://chia.net) logs,
-[chia_exporter](https://github.com/retzkek/chia_exporter) to collect metrics
+[chia_exporter](https://github.com/adavarski/chia-small-farming/tree/main/monitoring/chia_exporter) to collect metrics
 from the Chia node, with a [docker-compose](https://github.com/docker/compose/)
 stack to collect data with [Prometheus](https://prometheus.io/) and graph in
 [Grafana](https://grafana.com).
