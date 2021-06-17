@@ -1,4 +1,4 @@
-## Chia: small home farm
+## Chia: small home farm (ubuntu environment)
 
 
 - ### Setup/Check Chia environment 
@@ -84,7 +84,6 @@ screen -dmS chia chia_plot -n 1 -r 4 -u 128 -t /mnt/plots-tmp/disk1/ -d /mnt/plo
 Note: to detach run: ctrl + a + d. Once detached you can check current screens with 'screen -ls'. Use 'screen -r' to attach a single screen or 'screen -r SCREEN_N' in case of multiple screens.
 
 ### How to Verify -> To make sure the plots are valid you can use the ProofOfSpace tool from chiapos:
-
 git clone https://github.com/Chia-Network/chiapos.git
 cd chiapos && mkdir build && cd build && cmake .. && make -j8
 ./ProofOfSpace check -f plot-k32-???.plot [num_iterations]
@@ -159,10 +158,10 @@ docker-chiamon_prometheus_1      /bin/prometheus --config.f ...   Up
 ```
 http://${CHIA_NODE_IP}:3000 (user/password: admin/admin)
 
-Plot Manager:
+Plot Manager chiamon:
 <img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon.png" width="900">
 
-MadMax chia-plotter:
+MadMax chia-plotter chiamon:
 <img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon-madmax.png" width="900">
 
 
