@@ -58,9 +58,8 @@ This is a new implementation of a chia plotter which is designed as a processing
 sudo mount -t tmpfs -o size=110G tmpfs /mnt/ram/
 Note: 128 GiB System RAM minimum required for RAM disk.
 
-### Install MadMax chia-plotter
+### Checkout the source and install MadMax chia-plotter
 sudo apt install -y libsodium-dev cmake g++ git
-# Checkout the source and install
 git clone https://github.com/madMAx43v3r/chia-plotter.git 
 cd chia-plotter
 git submodule update --init
