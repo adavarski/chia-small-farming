@@ -1,4 +1,4 @@
-## Chia: small home farm (ubuntu environment)
+## Chia: small home farm (ubuntu)
 
 
 - ### Setup/Check Chia environment 
@@ -158,10 +158,12 @@ docker-chiamon_prometheus_1      /bin/prometheus --config.f ...   Up
 ```
 http://${CHIA_NODE_IP}:3000 (user/password: admin/admin)
 
-Plot Manager chiamon:
+#### Plot Manager chiamon:
+
 <img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon.png" width="900">
 
-MadMax chia-plotter chiamon:
+#### MadMax chia-plotter chiamon:
+
 <img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon-madmax.png" width="900">
 
 
