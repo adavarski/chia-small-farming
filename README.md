@@ -49,9 +49,36 @@ fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=test --fi
 chia plots create -k 32 -b 3389 -t /mnt/plots-tmp -d /mnt/plots -r 4 -u 128
 
 ```
+- ### MadMax chia-plotter (pipelined multi-threaded)
 
+This is a new implementation of a chia plotter which is designed as a processing pipeline, similar to how GPUs work, only the "cores" are normal software CPU threads. As a result this plotter is able to fully max out any storage device's bandwidth, simply by increasing the number of "cores", ie. threads.
+
+```
+### RAM disk setup on Linux
+sudo mount -t tmpfs -o size=110G tmpfs /mnt/ram/
+Note: 128 GiB System RAM minimum required for RAM disk.
+
+### Install MadMax chia-plotter
+sudo apt install -y libsodium-dev cmake g++ git
+# Checkout the source and install
+git clone https://github.com/madMAx43v3r/chia-plotter.git 
+cd chia-plotter
+git submodule update --init
+./make_devel.sh
+./build/chia_plot --help
+
+Note: The binaries will end up in build/, you can copy them elsewhere freely (on the same machine, or similar OS).
+sudo cp build/chia_plot /usr/local/bin
+
+### Run MadMax chia-plotter via screen
+screen -dmS chia chia_plot -n 1 -r 4 -u 128 -t /mnt/plots-tmp/disk1/ -d /mnt/plots/disk1/ -p a0d6533a5aa45a7b0d516c986265dc28ff1b5a1e6d51738ca138c6c4228724d2e8f262ab90ff4112ab42b4f2de61cf58 -f a35253798c9565f58759b0f32e51738875f873ecf31d5c12acd98e5c3c878c92a085e78bc248b7bbe00d03b9bb013666 |tee /tmp/chia.log &
+
+Note: to detach run: ctrl + a + d. Once detached you can check current screens with 'screen -ls'. Use 'screen -r' to attach a single screen or 'screen -r SCREEN_N' in case of multiple screens.
+
+```
 - ### Chia Plot Manager (to keep the plots generating)
-  
+
+Note: Slower plotting vs MadMax faster chia-plotter
 ```
 ### Install Chia Plot Manager 
 cd ./plot-manager
