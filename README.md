@@ -55,7 +55,7 @@ This is a new implementation of a chia plotter which is designed as a processing
 
 ```
 ### RAM disk setup on Linux
-sudo mount -t tmpfs -o size=110G tmpfs /mnt/ram/
+sudo mount -t tmpfs -o size=110G tmpfs /mnt/ramdisk/
 Note: 128 GiB System RAM minimum required for RAM disk.
 
 ### Checkout the source and install MadMax chia-plotter
@@ -69,7 +69,16 @@ git submodule update --init
 Note: The binaries will end up in build/, you can copy them elsewhere freely (on the same machine, or similar OS).
 sudo cp build/chia_plot /usr/local/bin
 
-### Run MadMax chia-plotter via screen
+### Run MadMax chia-plotter examples. 
+Note: Get -p (public-pool-key) -f (farmer-public-key) form command output: 'chia keys show'
+nohup chia_plot -n 1 -r 16 -u 128 -t /mnt/plots-tmp/disk1/ -2 /dev/shm/ -d /mnt/plots/disk1/ -p (public-pool-key) -f (farmer-public-key) > test.out 2>&1 &
+chia_plot -n 200 -r 128 -t /mnt/plots-tmp/disk1/ -2 /mnt/ramdisk/ -d /mnt/plots/disk1/ -p (public-pool-key) -f (farmer-public-key)
+chia_plot -n 16 -r 32 -u 128 -t /mnt/plots-tmp/disk1/ -2 /mnt/ramdisk/ -d /mnt/nfs/chia/ -p (public-pool-key) -f (farmer-public-key)
+chia_plot -r 8 -t /mnt/plots-tmp/disk1/ -2 /mnt/ramdisk/ -d /mnt/plots/disk1/ -p (public-pool-key) -f (farmer-public-key)
+chia_plot -n 1 -r 14 -u 128 -t /mnt/plots-tmp/disk1/ -2 /mnt/ramdisk/ -d /mnt/nfs/chia/
+chia_plot -1 -r 18 -u 128 -t /mnt/plots-tmp/disk1/ -2 /mnt/ramdisk/ -d /mnt/plots/disk1/ -p (public-pool-key) -f (farmer-public-key)
+
+### Run MadMax chia-plotter via screen example
 screen -dmS chia chia_plot -n 1 -r 4 -u 128 -t /mnt/plots-tmp/disk1/ -d /mnt/plots/disk1/ -p a0d6533a5aa45a7b0d516c986265dc28ff1b5a1e6d51738ca138c6c4228724d2e8f262ab90ff4112ab42b4f2de61cf58 -f a35253798c9565f58759b0f32e51738875f873ecf31d5c12acd98e5c3c878c92a085e78bc248b7bbe00d03b9bb013666 |tee /tmp/chia.log &
 
 Note: to detach run: ctrl + a + d. Once detached you can check current screens with 'screen -ls'. Use 'screen -r' to attach a single screen or 'screen -r SCREEN_N' in case of multiple screens.
