@@ -83,6 +83,12 @@ screen -dmS chia chia_plot -n 1 -r 4 -u 128 -t /mnt/plots-tmp/disk1/ -d /mnt/plo
 
 Note: to detach run: ctrl + a + d. Once detached you can check current screens with 'screen -ls'. Use 'screen -r' to attach a single screen or 'screen -r SCREEN_N' in case of multiple screens.
 
+### How to Verify -> To make sure the plots are valid you can use the ProofOfSpace tool from chiapos:
+
+git clone https://github.com/Chia-Network/chiapos.git
+cd chiapos && mkdir build && cd build && cmake .. && make -j8
+./ProofOfSpace check -f plot-k32-???.plot [num_iterations]
+
 ```
 - ### Chia Plot Manager (to keep the plots generating)
 
