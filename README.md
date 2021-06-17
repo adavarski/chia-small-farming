@@ -164,6 +164,6 @@ http://${CHIA_NODE_IP}:3000 (user/password: admin/admin)
 
 #### MadMax chia-plotter (chiamon):
 
-<img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon-madmax.png" width="900">
+<img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon-madmax-plotter.png" width="900">
 
 
