@@ -30,8 +30,8 @@ chia show -s -c
 chia stop all && chia start farmer 
 
 ### Mount disks 
-mount SATA SSD/NVMe SSD disks (2 Plotting SSDs: RAID0) for plots temp files -> /mnt/plots-tmp (example: 1 SATA SSD ---> /mnt/plots-tmp/ ---> disk1/disk2 directories for plots tmp)
-mount SATA HDD disks for plots (2 x WD Red Pro NAS HDD 16TB : RAID0 for ~ 200-300 k=32 plots) -> /mnt/plots (exmple: 2 HDD ---> /mnt/plots_disk1 & /mnt/plots_disk2)
+mount SATA SSD/NVMe SSD disks (2 Plotting NVMe SSDs: RAID0) for plots temp files -> /mnt/plots-tmp 
+mount SATA HDD disks for plots (4 x WD Red Pro NAS HDD 16TB SATA: RAID0 ~ 700 k=32 plots) -> /mnt/plots 
 
 ### Test disks and R/W performance
 sudo apt install smartmontools pv fio
@@ -69,7 +69,7 @@ git submodule update --init
 Note: The binaries will end up in build/, you can copy them elsewhere freely (on the same machine, or similar OS).
 sudo cp build/chia_plot /usr/local/bin
 
-### Run MadMax chia-plotter examples. 
+### Run MadMax chia-plotter examples: 
 Note: Get -p (public-pool-key) -f (farmer-public-key) form command output: 'chia keys show'
 nohup chia_plot -n 1 -r 16 -u 128 -t /mnt/plots-tmp/disk1/ -2 /dev/shm/ -d /mnt/plots/disk1/ -p (public-pool-key) -f (farmer-public-key) > test.out 2>&1 &
 chia_plot -n 200 -r 128 -t /mnt/plots-tmp/disk1/ -2 /mnt/ramdisk/ -d /mnt/plots/disk1/ -p (public-pool-key) -f (farmer-public-key)
@@ -78,12 +78,12 @@ chia_plot -r 8 -t /mnt/plots-tmp/disk1/ -2 /mnt/ramdisk/ -d /mnt/plots/disk1/ -p
 chia_plot -n 1 -r 14 -u 128 -t /mnt/plots-tmp/disk1/ -2 /mnt/ramdisk/ -d /mnt/nfs/chia/
 chia_plot -1 -r 18 -u 128 -t /mnt/plots-tmp/disk1/ -2 /mnt/ramdisk/ -d /mnt/plots/disk1/ -p (public-pool-key) -f (farmer-public-key)
 
-### Run MadMax chia-plotter via screen example
-screen -dmS chia chia_plot -n 1 -r 4 -u 128 -t /mnt/plots-tmp/disk1/ -d /mnt/plots/disk1/ -p a0d6533a5aa45a7b0d516c986265dc28ff1b5a1e6d51738ca138c6c4228724d2e8f262ab90ff4112ab42b4f2de61cf58 -f a35253798c9565f58759b0f32e51738875f873ecf31d5c12acd98e5c3c878c92a085e78bc248b7bbe00d03b9bb013666 |tee /tmp/chia.log &
+### Run MadMax chia-plotter via screen example:
+screen -L -Logfile /tmp/screen_chia.log -dmS chia chia_plot -n 1 -r 4 -u 128 -t /mnt/plots-tmp/disk1/ -d /mnt/plots/disk1/ -p a0d6533a5aa45a7b0d516c986265dc28ff1b5a1e6d51738ca138c6c4228724d2e8f262ab90ff4112ab42b4f2de61cf58 -f a35253798c9565f58759b0f32e51738875f873ecf31d5c12acd98e5c3c878c92a085e78bc248b7bbe00d03b9bb013666 
 
 Note: to detach run: ctrl + a + d. Once detached you can check current screens with 'screen -ls'. Use 'screen -r' to attach a single screen or 'screen -r SCREEN_N' in case of multiple screens.
 
-### How to Verify -> To make sure the plots are valid you can use the ProofOfSpace tool from chiapos:
+### Verify plots -> To make sure the plots are valid you can use the ProofOfSpace tool from chiapos:
 git clone https://github.com/Chia-Network/chiapos.git
 cd chiapos && mkdir build && cd build && cmake .. && make -j8
 ./ProofOfSpace check -f plot-k32-???.plot [num_iterations]
