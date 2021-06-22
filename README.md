@@ -166,4 +166,8 @@ http://${CHIA_NODE_IP}:3000 (user/password: admin/admin)
 
 <img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon-madmax-plotter.png" width="900">
 
+#### chiamon : (farming):
+
+<img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon-farming.png" width="900">
+
 
