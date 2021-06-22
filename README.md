@@ -158,7 +158,7 @@ docker-chiamon_prometheus_1      /bin/prometheus --config.f ...   Up
 ```
 http://${CHIA_NODE_IP}:3000 (user/password: admin/admin)
 
-#### chiamon : (Plot Manager):
+#### chiamon : (Swar Plot Manager):
 
 <img src="https://github.com/adavarski/chia-small-farming/blob/main/monitoring/docker-chiamon/chiamon.png" width="900">
 
