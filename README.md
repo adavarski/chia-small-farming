@@ -88,6 +88,7 @@ git clone https://github.com/Chia-Network/chiapos.git
 cd chiapos && mkdir build && cd build && cmake .. && make -j8
 ./ProofOfSpace check -f plot-k32-???.plot [num_iterations]
 
+Note: Lightweight manager for MadMax Plotter. Support both Linux (Ubuntu, CentOS, etc.) and Unix (macOS) ---> https://github.com/tobernguyen/madmax-manager
 ```
 - ### Chia Plot Manager (to keep the plots generating)
 
