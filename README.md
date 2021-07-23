@@ -31,7 +31,7 @@ chia stop all && chia start farmer
 
 ### Mount disks 
 mount SATA SSD/NVMe SSD disks (2 Plotting NVMe SSDs: RAID0) for plots temp files -> /mnt/plots-tmp 
-mount SATA HDD disks for plots (4 x WD Red Pro NAS HDD 16TB SATA: RAID0 ~ 700 k=32 plots) -> /mnt/plots 
+mount SATA HDD disks for plots (4 x WD Red Pro NAS HDD 16TB SATA: RAID0 ~ 700 k=32 plots / 2 pci-e to sata cards) -> /mnt/plots 
 
 ### Test disks and R/W performance
 sudo apt install smartmontools pv fio
